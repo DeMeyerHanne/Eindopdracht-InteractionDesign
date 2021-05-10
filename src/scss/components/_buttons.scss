@@ -1,0 +1,123 @@
+.button {
+    display: inline-flex;
+    @include font-size(9, mobile, true, false, true);
+    @if ( get-font-size(9, desktop) != get-font-size(9, mobile) ) {
+        @include media( '>medium' ) {
+            @include font-size(9, desktop, true, false, true);
+        }
+    }
+    @include font-weight(bold);
+    line-height: 16px;
+    color: color(typography, 1) !important;
+    
+    cursor: pointer;
+    
+    margin: 0 -4px;
+	height: 48px;
+    white-space: nowrap;
+
+    border-radius: 8px;
+
+    justify-content: center;
+    align-items: center;
+
+    &:active {
+        outline: 0;
+    }
+
+    &::before {
+        border-radius: 2px;
+    }
+}
+
+
+.button-gender {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    @if ( get-font-size(9, desktop) != get-font-size(9, mobile) ) {
+        @include media( '>medium' ) {
+            @include font-size(9, desktop, true, false, true);
+        }
+    }
+    @include font-weight(bold);
+    line-height: 16px;
+    color: color(typography, 1) !important;
+    font-size: 16px;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    padding: 4px;
+    margin-right: 4px;
+	height: 100%;
+    white-space: nowrap;    
+
+    &:hover {
+        background: #EFEFF0;
+    }
+}
+
+.button-primary,
+.button-secondary {
+    color: color(typography, 1i) !important;
+    transition: background .15s ease;
+}
+
+.button-primary {
+    background: mix(color(primary, 1), color(primary, 2));
+    background: linear-gradient(65deg, color(primary, 1) -25%, color(primary, 2) 100%);
+
+    &:hover {
+        background: lighten(mix(color(primary, 1), color(primary, 2)), .5%);
+        background: linear-gradient(65deg, lighten(color(primary, 1), .5%) -25%, lighten(color(primary, 2), .5%) 100%);
+    }
+}
+
+.button-secondary {
+    background: mix(color(primary, 1), color(secondary, 2));
+    background: linear-gradient(65deg, color(primary, 1) -25%, color(secondary, 2) 100%);
+
+    &:hover {
+        background: lighten(mix(color(primary, 1), color(secondary, 2)), .5%);
+        background: linear-gradient(65deg, lighten(color(primary, 1), .5%) -25%, lighten(color(secondary, 2), .5%) 100%);
+    }
+}
+
+.button-block {
+    display: flex;
+}
+
+.button-shop-item {
+    display: inline-flex;
+
+    font-size: 14px;
+    @if ( get-font-size(9, desktop) != get-font-size(9, mobile) ) {
+        @include media( '>medium' ) {
+            @include font-size(9, desktop, true, false, true);
+        }
+    }
+    @include font-weight(bold);
+    line-height: 16px;
+    color: #1a1a1a;
+    font-weight: 400;
+    
+    cursor: pointer;
+    
+    margin-bottom: 0;
+    margin-right: 16px;
+	height: 20px;
+    white-space: nowrap;
+
+    &:hover {
+        border-bottom: 1px solid #1A1A1A;
+    }
+}
+
+.button-shop-item__special {
+    color: #EB0037;
+    &:hover {
+        border-bottom: 1px solid #EB0037;
+    }
+}
